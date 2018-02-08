@@ -13,4 +13,11 @@ public function index(){
 public function about(){
     return view('page.about');
 }
+public function widoki(){
+    $dane=array(
+        'tytul'=>'widok',
+        'cos' => ['numer 1','numer2','numer3']
+    );
+    return view('page.widok')->with($dane);
+}
 }

@@ -15,3 +15,7 @@ Route::get('/','PageController@index');
 
 
 Route::get('/about','PageController@about');
+
+Route::get('/widok','PageController@widoki');
+
+Route::resource('artyks','ArtykulController');

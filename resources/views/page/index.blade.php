@@ -1,6 +1,7 @@
-@extends('layouts/app')
+@extends('layouts.app')
 
 @section('content')
-        <h1> INDEX wtf</h1>
+<div class="jumbotron text-center"
+        <h1> INDEX wtf</h1></div>
 @endsection
   
