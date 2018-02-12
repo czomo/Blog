@@ -12,6 +12,7 @@
         <small>Utworzony: {{$post->created_at}}</small>
 </div>
 @endforeach
+{{$posts->links()}}
 @else 
 <p>Brak postów</p>
 @endif

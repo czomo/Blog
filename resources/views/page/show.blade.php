@@ -1,8 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+<a href="http://localhost/blog/public/artyks" class="btn btn-default">Wróć</a>
 <div class="jumbotron">
-<small>Utworzono: {{$post->created_at}}</small>
+    <h1>{{ $post['title'] }}</h1>
+<small>Utworzono: {{ $post['created_at'] }}</small>
 </div>
 @endsection
   

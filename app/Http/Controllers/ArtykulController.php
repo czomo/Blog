@@ -14,7 +14,7 @@ class ArtykulController extends Controller
      */
     public function index()
     {
-        $posts = Artyk::all();
+        $posts = Artyk::orderByDesc('created_at')->paginate(2);
         return view('page.index')->with('posts',$posts);
     }
 
@@ -25,7 +25,7 @@ class ArtykulController extends Controller
      */
     public function create()
     {
-        //
+        return view('page.create');
     }
 
     /**
