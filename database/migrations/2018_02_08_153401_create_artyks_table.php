@@ -17,6 +17,7 @@ class CreateArtyksTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->string('title');
+            $table->mediumText('body');
         });
     }
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Artyk;
 
 class ArtykulController extends Controller
 {
@@ -13,7 +14,8 @@ class ArtykulController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Artyk::all();
+        return view('page.index')->with('posts',$posts);
     }
 
     /**
@@ -45,7 +47,8 @@ class ArtykulController extends Controller
      */
     public function show($id)
     {
-        //
+        $post=Artyk::find($id);
+        return view('page.show')->with('post',$post);
     }
 
     /**
