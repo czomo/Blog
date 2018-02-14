@@ -19,3 +19,7 @@ Route::get('/about','PageController@about');
 Route::get('/widok','PageController@widoki');
 
 Route::resource('artyks','ArtykulController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

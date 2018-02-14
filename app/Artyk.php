@@ -12,4 +12,9 @@ class Artyk extends Model
     public $timestamp =true;
     //PK
     public $primaryKey= 'id';
+
+    public function user(){
+
+        return $this->belongsTo('App\User');
+    }
 }
