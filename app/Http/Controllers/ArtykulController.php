@@ -36,7 +36,17 @@ class ArtykulController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'title'=>'required',
+            'body'=>'required'
+        ]);
+
+
+        $post=new Artyk;
+        $post->title=$request->input('title');
+        $post->body=$request->input('body');
+        $post->save();
+        return redirect('/artyks')->with('success','Dodano artykul');
     }
 
     /**

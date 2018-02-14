@@ -10,13 +10,17 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
-    
-    
+        <title>{{config('app.name','Blog')}}</title>
+
     </head>
     <body>
         @include('inc.navbar')
         <div class='container'>
+            @include('inc.message')
          @yield('content')
         </div>
+        <script src="http://cdn.ckeditor.com/4.5.6/standard/ckeditor.js"></script>
+
+        <script>CKEDITOR.replace('article-ckeditor');</script>
     </body>
 </html>
