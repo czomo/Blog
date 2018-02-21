@@ -1,3 +1,5 @@
-Test blog in Laravel
+<h1>Blog</h1> 
 
-work in progress..
+Laravel + Bootstap + CKEDITOR
+
+Aplikacja do tworzenia postów przez użytkowników z wbudowanym edytorem tekstu. Uzytkownicy posiadający zarejestrowane konto mogą dodawać, edytować i usuwać dodane przez siebie materiały.
