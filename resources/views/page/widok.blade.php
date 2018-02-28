@@ -5,7 +5,7 @@
  @if(count($cos)>0)
  <ul class="list-group">
      @foreach($cos as $widok)
-     <li class="list-group-item">{{$widok}}</li>
+        <li class="list-group-item">{{$widok}}</li>
      @endforeach
  </ul>
  @endif

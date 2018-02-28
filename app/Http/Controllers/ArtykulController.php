@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Artyk;
 
@@ -47,14 +47,25 @@ class ArtykulController extends Controller
     {
         $this->validate($request,[
             'title'=>'required',
-            'body'=>'required'
+            'body'=>'required',
+            'image'=>'image|nullable|max:1500'
         ]);
 
+        if($request->hasFile('image')){
+            $fileblank=$request->file('image')->getClientOriginalName();
+            $filename=pathinfo($fileblank,PATHINFO_FILENAME);
+            $extension=$request->file('image')->getClientOriginalExtension();
+            $filenameStore=$filename.'_'.time().'.'.$extension;
+            $path=$request->file('image')->storeAs('public/images',$filenameStore);
+        } else {
+            $filenameStore='brak.jpg';
+        }
 
         $post=new Artyk;
         $post->title=$request->input('title');
         $post->body=$request->input('body');
         $post->user_id=auth()->user()->id;
+        $post->image=$filenameStore;
         $post->save();
         return redirect('/artyks')->with('success','Dodano artykul');
     }
@@ -102,10 +113,20 @@ class ArtykulController extends Controller
             'body'=>'required'
         ]);
 
+        if($request->hasFile('image')){
+            $fileblank=$request->file('image')->getClientOriginalName();
+            $filename=pathinfo($fileblank,PATHINFO_FILENAME);
+            $extension=$request->file('image')->getClientOriginalExtension();
+            $filenameStore=$filename.'_'.time().'.'.$extension;
+            $path=$request->file('image')->storeAs('public/images',$filenameStore);
+        } 
 
         $post=Artyk::find($id);
         $post->title=$request->input('title');
         $post->body=$request->input('body');
+        if($request->hasFile('image')){
+            $post->image=$filenameStore;
+        }
         if(auth()->user()->id !== $post->user_id){
             return redirect('/artyks')->with('error','Zaloguj się');
         }
@@ -124,6 +145,9 @@ class ArtykulController extends Controller
         $post=Artyk::find($id);
         if(auth()->user()->id !== $post->user_id){
             return redirect('/artyks')->with('error','Zaloguj się');
+        }
+        if($post->image!='brak.jpg'){
+            Storage::delete('/public/images/'.$post->image);
         }
         $post->delete();
         return redirect('/artyks')->with('success','Usunięto artykul');
