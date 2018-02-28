@@ -8,3 +8,9 @@ Laravel + Bootstap + CKEDITOR
 ![alt text](https://imgur.com/Xro3gZc)
 ![alt text](https://imgur.com/HJp19yc)
 ![alt text](https://imgur.com/QCRbuIf)
+<p align="center">
+  <img src="https://imgur.com/Xro3gZc" width="350"/>
+  <img src="https://imgur.com/HJp19yc" width="350"/>
+  <img src="https://imgur.com/QCRbuIf" width="350"/>
+
+</p>
